@@ -7,9 +7,17 @@ describe(Triangle) do
       test_triangle = Triangle.new(2, 2, 10)
       expect(test_triangle.triangle?()).to(eq(false))
     end
-    it("returns true if it is a triangle")do
-      test_triangle = Triangle.new(6, 8, 10)
-      expect(test_triangle.triangle?()).to(eq(true))
+    it("returns equilateral if all sides are equal")do
+      test_triangle = Triangle.new(3, 3, 3)
+      expect(test_triangle.triangle?()).to(eq("equilateral"))
+    end
+    it("returns isosceles if two sides are equal")do
+      test_triangle = Triangle.new(3, 3, 5)
+      expect(test_triangle.triangle?()).to(eq("isosceles"))
+    end
+    it("returns scalene if no sides are equal")do
+      test_triangle = Triangle.new(3, 4, 5)
+      expect(test_triangle.triangle?()).to(eq("scalene"))
     end
   end
 end
